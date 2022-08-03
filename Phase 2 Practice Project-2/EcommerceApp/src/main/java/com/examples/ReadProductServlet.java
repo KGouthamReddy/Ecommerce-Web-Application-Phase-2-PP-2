@@ -1,7 +1,6 @@
 package com.examples;
 
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -45,30 +44,48 @@ public class ReadProductServlet extends HttpServlet {
 			ResultSet results = statement.executeQuery("select * from products where ProductID = '" + productID + "'");
 			PrintWriter out = response.getWriter();
 			
-			ArrayList<Integer> list = new ArrayList<>();
-			while(results.next()) {
-				int products = results.getInt(1);
-				list.add(products);
-			}
+//			ArrayList<Integer> list = new ArrayList<>();
+//			while(results.next()) {
+//				int products = results.getInt(1);
+//				list.add(products);
+//			}
+//			
+//			System.out.println(list);
+//			int products = Integer.parseInt(productID);
+//			if(list.contains(products)) {
+//				out.println("<table>");
+//				out.println("<tr>");
+//				out.println("<th>ProdcutID</th>");
+//				out.println("<th>ProductName</th>");
+//				out.println("<th>ProductPrice</th>");
+//				out.println("</tr>");
+//				while(results.next()) {
+//					out.println("<tr>");
+//					out.println("<td>" + results.getInt(1) + "</td>");
+//					out.println("<td>" + results.getString(2) + "</td>");
+//					out.println("<td>" + results.getLong(3) + "</td>");
+//					out.println("</tr>");
+//				}
+//				out.println("</table>");
+//			}else {
+//				out.println("<h2>Error....No details found.Please enter the correct product ID.</h2>");
+//			}
 			
-			if(list.contains(productID)) {
-				out.println("<table>");
+			out.println("<table>");
+			out.println("<tr>");
+			out.println("<th>ProdcutID</th>");
+			out.println("<th>ProductName</th>");
+			out.println("<th>ProductPrice</th>");
+			out.println("</tr>");
+			while(results.next()) {
 				out.println("<tr>");
-				out.println("<th>ProdcutID</th>");
-				out.println("<th>ProductName</th>");
-				out.println("<th>ProductPrice</th>");
+				out.println("<td>" + results.getInt(1) + "</td>");
+				out.println("<td>" + results.getString(2) + "</td>");
+				out.println("<td>" + results.getLong(3) + "</td>");
 				out.println("</tr>");
-				while(results.next()) {
-					out.println("<tr>");
-					out.println("<td>" + results.getInt(1) + "</td>");
-					out.println("<td>" + results.getString(2) + "</td>");
-					out.println("<td>" + results.getLong(3) + "</td>");
-					out.println("</tr>");
-				}
-				out.println("</table>");
-			}else {
-				out.println("<h2>Error....No details found.Please enter the correct product ID.</h2>");
 			}
+			out.println("</table>");
+			
 			
 			
 			out.println("<p><a href=\"product.html\">Home</a></p>");
@@ -79,6 +96,7 @@ public class ReadProductServlet extends HttpServlet {
 		
 		
 	}
+
 	@Override
 	public void destroy() {
 		try {
