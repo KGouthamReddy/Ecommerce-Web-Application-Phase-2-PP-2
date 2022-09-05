@@ -13,11 +13,11 @@
 		<table>
 			<tr>
 				<td>Enter the details</td>
-				<td><input type="hidden" name="quesId" /></td>
+				<td><input type="hidden" /></td>
 			</tr>
 			<tr>
 				<td>Id</td>
-				<td><input type="text" name="question" /></td>
+				<td><input type="text" name="quesId" /></td>
 			</tr>
 			<tr>
 				<td>Question</td>

@@ -12,34 +12,34 @@
 		<table>
 			<tr>
 				<td>Enter the details</td>
-				<td><input type="hidden" name="quesid" /></td>
+				<td><input type="hidden" /></td>
 			</tr>
 			<tr>
 				<td>Id</td>
-				<td><input type="text" name="question" /></td>
+				<td><input type="text" name="quesid" /></td>
 			</tr>
 			<tr>
 				<td>Question</td>
 				<td><input type="text" name="question" /></td>
 			</tr>
 			<tr>
-				<td>option1</td>
+				<td>Option1</td>
 				<td><input type="text" name="optionA" /></td>
 			</tr>
 			<tr>
-				<td>option2</td>
+				<td>Option2</td>
 				<td><input type="text" name="optionB" /></td>
 			</tr>
 			<tr>
-				<td>option3</td>
+				<td>Option3</td>
 				<td><input type="text" name="optionC" /></td>
 			</tr>
 			<tr>
-				<td>ans</td>
+				<td>Answer</td>
 				<td><input type="text" name="ans" /></td>
 			</tr>
 			<tr>
-				<td>chose</td>
+				<td>Choose</td>
 				<td><input type="text" name="chose" /></td>
 			</tr>
 			<tr>

@@ -11,7 +11,7 @@
 		
 		<form action="submit" method="POST" th:object=${qForm}>
 			<div class="ques-box bg-dark text-light" th:each="ques, i: ${qForm.questions}">
-				<p class="title" th:text="${ques.title}"></p>
+				<p class="question" th:text="${ques.question}"></p>
 				
 				<div class="option">
 					<input type="radio" th:name="|questions[${i.index}].chose|" th:value="1" th:text="${ques.optionA}" />
@@ -26,7 +26,7 @@
 				</div>
 				
 				<input type="hidden" th:name="|questions[${i.index}].quesId|" th:value="${ques.quesId}" />
-				<input type="hidden" th:name="|questions[${i.index}].title|" th:value="${ques.title}" />
+				<input type="hidden" th:name="|questions[${i.index}].title|" th:value="${ques.question}" />
 				<input type="hidden" th:name="|questions[${i.index}].ans|" th:value="${ques.ans}" />
 			</div>
 			

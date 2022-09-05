@@ -178,6 +178,12 @@ public class MainController {
 		return mv;
 	}
 	
+	@RequestMapping("/createQuizParticipant")
+	public ModelAndView createQuizParticipant1() {
+		ModelAndView mv = new ModelAndView();
+        mv.setViewName("quiz");
+		return mv;
+	}
 	
 	
 	@RequestMapping(value="/viewParticipantForm", method=RequestMethod.POST)
@@ -254,51 +260,52 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="/createQuiz", method=RequestMethod.POST)
-	public ModelAndView createNewQuiz(@ModelAttribute("question") Question question, ModelMap model) {
+	public ModelAndView createNewQuiz(@ModelAttribute("quizCode") Question quizCode, ModelMap model) {
 		ModelAndView quizCreateSuccess = new ModelAndView();
 		quizCreateSuccess.setViewName("quizCreateSuccess");
 		
-		quizRepo.save(question);
+		quizRepo.save(quizCode);
 		return quizCreateSuccess;
 	}
 	
 	@RequestMapping(value="/updateQuiz", method=RequestMethod.POST)
-	public ModelAndView updateQuiz(@ModelAttribute("question") Question question, ModelMap model) {
+	public ModelAndView updateQuiz(@ModelAttribute("quizCode") Question quizCode, ModelMap model) {
 		ModelAndView quizNotFound = new ModelAndView();
 		quizNotFound.setViewName("quizNotFound");
 		
 		ModelAndView quizUpdateSuccess = new ModelAndView();
 		quizUpdateSuccess.setViewName("quizUpdateSuccess");
 		
-		Optional<Question> optQuestion = quizRepo.findById(question.getQuesId());
+		Optional<Question> optQuestion = quizRepo.findById(quizCode.getQuesId());
 		if(optQuestion.isEmpty()) {
 			return quizNotFound;
 		}
 		Question dbQuiz = optQuestion.get();
-		dbQuiz.setOptionA(question.getOptionA());
-		dbQuiz.setOptionB(question.getOptionB());
-		dbQuiz.setOptionC(question.getOptionC());
-		dbQuiz.setAns(question.getAns());		
-		dbQuiz.setChose(question.getChose());
+		dbQuiz.setQuestion(quizCode.getQuestion());
+		dbQuiz.setOptionA(quizCode.getOptionA());
+		dbQuiz.setOptionB(quizCode.getOptionB());
+		dbQuiz.setOptionC(quizCode.getOptionC());
+		dbQuiz.setAns(quizCode.getAns());		
+		dbQuiz.setChose(quizCode.getChose());
 		quizRepo.save(dbQuiz);
 		model.addAttribute("quizzes", quizRepo.findAll());
 		return quizUpdateSuccess;
 	}
 	
 	@RequestMapping(value="/deleteQuiz", method=RequestMethod.POST)
-	public ModelAndView deleteQuiz(@ModelAttribute("question") Question question, ModelMap model) {
+	public ModelAndView deleteQuiz(@ModelAttribute("quizCode") Question quizCode, ModelMap model) {
 		ModelAndView quizNotFound = new ModelAndView();
 		quizNotFound.setViewName("quizNotFound");
 		
 		ModelAndView quizDeleteSuccess = new ModelAndView();
 		quizDeleteSuccess.setViewName("quizDeleteSuccess");
 		
-		Optional<Question> optQuestion = quizRepo.findById(question.getQuesId());
+		Optional<Question> optQuestion = quizRepo.findById(quizCode.getQuesId());
 		if(optQuestion.isEmpty()) {
 			return quizNotFound;
 		}
 		Question dbQuiz = optQuestion.get();
-		dbQuiz.setQuesId(question.getQuesId());
+		dbQuiz.setQuesId(quizCode.getQuesId());
 		quizRepo.delete(dbQuiz);
 		return quizDeleteSuccess;
 	}
@@ -319,14 +326,14 @@ public class MainController {
 	
 	
 	@RequestMapping(value="/createQuizParticipant", method=RequestMethod.POST)
-	public ModelAndView quiz(@RequestParam String name, Model m, RedirectAttributes ra, @ModelAttribute("question") Question question) {
+	public ModelAndView quiz(@RequestParam String name, Model m, RedirectAttributes ra, @ModelAttribute("quizCode") Question quizCode) {
 		ModelAndView quizpage = new ModelAndView();
 		quizpage.setViewName("quiz");
 		
 		ModelAndView validParticipant = new ModelAndView();
 		validParticipant.setViewName("validParticipant");
 		
-		if(name.isBlank()) {
+		if(name.isEmpty()) {
 			ra.addFlashAttribute("warning", "You must enter your name");
 			return validParticipant;
 		}

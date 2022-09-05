@@ -8,7 +8,7 @@
 
 <body>
 	<h1>Enter the participant details to login</h1>
-	<form action="viewPaticipantForm" method="post">
+	<form action="viewParticipantForm" method="post">
 
 		Name: <input type="text" name="name" /><br><br>
 		Password: <input type="password" name="password" /><br><br>
