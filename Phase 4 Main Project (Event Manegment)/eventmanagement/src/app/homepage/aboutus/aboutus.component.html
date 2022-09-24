@@ -1,0 +1,151 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+      }
+
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      .column {
+        float: left;
+        width: 33.3%;
+        margin-bottom: 16px;
+        padding: 0 8px;
+      }
+
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin: 8px;
+      }
+
+      .about-section {
+        padding: 50px;
+        text-align: center;
+        background: cornflowerblue;
+        color: white;
+      }
+
+      .container {
+        padding: 0 12px;
+      }
+
+      .container::after,
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      .title {
+        color: grey;
+      }
+
+      .button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .button:hover {
+        background-color: #555;
+      }
+
+      @media screen and (max-width: 650px) {
+        .column {
+          width: 100%;
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="about-section">
+      <h1>About Us Page</h1>
+      <h3>OUR EVENT MANAGEMENT STRATEGY</h3>
+      <p>
+        The Event Planner team is made up of a mix of people. James and Ilona
+        take care of corporate events. Josette is the wedding guru. Nicole is
+        the creative one. Sergio is the merchandise expert. In addition to this
+        group of people, a large support team helps out in everything the
+        company does, in office work to on-site logistics planning. One thing we
+        can truly say about our team is that we are very passionate about our
+        job!
+      </p>
+    </div>
+
+    <h2 style="text-align: center">Administration Team</h2>
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img
+            src="https://www.imageconsultinginstitute.com/wp-content/uploads/2021/12/smiling-confident-businesswoman-posing-with-arms-folded.jpg"
+            alt="Jane"
+            style="width: 100%; height: 300px"
+          />
+          <div class="container mt-2">
+            <h2>Jane Doe</h2>
+            <p class="title">Event Manager</p>
+            <p>Manages all the events in this organization</p>
+            <p>jane.mngr@gmail.com</p>
+            <p>
+              <button class="button" routerLink="/contactus">Contact</button>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1624797432677-6f803a98acb3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YnVzaW5lc3MlMjBtYW58ZW58MHx8MHx8&w=1000&q=80"
+            alt="Mike"
+            style="width: 100%; height: 300px"
+          />
+          <div class="container mt-2">
+            <h2>Mike Ross</h2>
+            <p class="title">Director</p>
+            <p>Director of this organization</p>
+            <p>mike@gmail.com</p>
+            <button class="button" routerLink="/contactus">Contact</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+            src="https://www.advancy.com/wp-content/uploads/2017/07/portrait-defaut.jpg"
+            alt="John"
+            style="width: 100%; height: 300px"
+          />
+          <div class="container mt-2">
+            <h2>John William</h2>
+            <p class="title">Designer</p>
+            <p>Designer of this app and senior team leader</p>
+            <p>john@gmail.com</p>
+            <button class="button" routerLink="/contactus">Contact</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<router-outlet></router-outlet>

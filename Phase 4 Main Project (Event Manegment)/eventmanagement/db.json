@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "title": "Global Meeting",
+      "content": "Meeting at 4:00PM IST 25-09-2022",
+      "id": 3
+    },
+    {
+      "title": "Environmental Awareness",
+      "content": "Official gathering at 7 PM IST",
+      "id": 4
+    }
+  ],
+  "comments": [],
+  "users": [
+    {
+      "email": "lex@in",
+      "name": "lex",
+      "passward": "1234",
+      "id": 1
+    },
+    {
+      "email": "lex@in",
+      "name": "lex",
+      "passward": "12334",
+      "id": 2
+    },
+    {
+      "email": "lex@in",
+      "name": "lex",
+      "passward": "1234",
+      "id": 3
+    }
+  ]
+}

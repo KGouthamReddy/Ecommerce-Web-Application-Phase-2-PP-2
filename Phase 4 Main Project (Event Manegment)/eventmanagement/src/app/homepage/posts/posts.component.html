@@ -1,0 +1,63 @@
+<div class="container m-2 justify-center" style="width: 400px">
+  <h3>Hello user you can check event Details Below</h3>
+  <form #f="ngForm" style="background-color: rgba(67, 228, 225, 0.23)">
+    <div class="row m-3">
+      <div class="form-group">
+        <label for="title">Event Name</label>
+        <input
+          type="text"
+          style="border: 2px solid"
+          id="title"
+          class="form-control"
+          name="title"
+          ngModel
+          required
+        />
+      </div>
+    </div>
+    <div class="row m-3">
+      <div class="form-group">
+        <label for="content">Event Details</label>
+        <input
+          type="text"
+          style="border: 2px solid"
+          id="content"
+          class="form-control"
+          name="content"
+          ngModel
+          required
+        />
+      </div>
+    </div>
+    <div class="row m-3">
+      <div class="col">
+        <button
+          class="btn btn-primary btn-sm"
+          [disabled]="!f.valid"
+          (click)="onCreatePost(f.value, f)"
+        >
+          Save Event
+        </button>
+      </div>
+      <div class="col">
+        <button class="btn btn-info btn-sm" (click)="onFetchPosts()">
+          Show Events
+        </button>
+      </div>
+    </div>
+  </form>
+  <div class="row m-3">
+    <div class="col">
+      <p *ngIf="fetchedPosts.length < 1">No Posts Available !!</p>
+      <ul class="list-group" *ngIf="fetchedPosts.length >= 1">
+        <li class="list-group-item" *ngFor="let post of fetchedPosts">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.content }}</p>
+          <button class="btn btn-sm btn-danger" (click)="onDeletePost(post.id)">
+            Delete
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div>
+  <div
+    class="jumbotron"
+    style="margin: 25px; background-color: rgba(67, 228, 225, 0.23)"
+  >
+    <h2 style="text-align: center; padding-top: 5%">Register</h2>
+    <p style="text-align: center">
+      Enter the valid E-mail address and the password!
+    </p>
+    <form #f="ngForm">
+      <div class="row m-3">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            style="border: 2px solid"
+            id="email"
+            class="form-control"
+            name="email"
+            ngModel
+            required
+          />
+        </div>
+      </div>
+      <div class="row m-3">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            style="border: 2px solid"
+            id="name"
+            class="form-control"
+            name="name"
+            ngModel
+            required
+          />
+        </div>
+      </div>
+      <div class="row m-3">
+        <div class="form-group">
+          <label for="passward">Password</label>
+          <input
+            type="text"
+            style="border: 2px solid"
+            id="passward"
+            class="form-control"
+            name="passward"
+            ngModel
+            required
+          />
+        </div>
+      </div>
+      <div class="row m-3">
+        <div class="col">
+          <button
+            class="btn btn-primary btn-sm"
+            [disabled]="!f.valid"
+            (click)="onCreateUser(f.value, f)"
+          >
+            Register
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
